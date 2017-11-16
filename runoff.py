@@ -2,11 +2,10 @@
 #  Method of computing Runoff : SCS-Curve Number Method
 #  load required packages:
 from __future__ import division
-
 import math
-
 import numpy as np 
 import pandas as pd
+
 class SCS():
 
 	def curve_number(self):
@@ -24,12 +23,17 @@ class SCS():
 
 	def read_precip_data(self,a=10):
 		# method to read and return the precipitation data
-		# write your method here
+		# read your actual precipitation data here:
 		self.precipitation = a
 		return self.precipitation
 
 	def runoff(self):
-		#Q = math.pow((self.precipitation) - (self.abstraction))
-		Q = ((self.precipitation) - (self.initial_abstraction))**2
-		return Q
+		numerator = (self.precipitation - self.max_ret)**2
+        	denominator = self.precipitation - 0.27
+        	if self.precipitation <= self.max_ret:
+            		Q = 0
+        	else:
+            		Q = numerator/denominator
+        	return Q
+		
 
