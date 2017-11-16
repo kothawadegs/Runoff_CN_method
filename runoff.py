@@ -1,5 +1,7 @@
 #  This code calculates the runoff based on storm rainfall. 
 #  Method of computing Runoff : SCS-Curve Number Method
+#  Author : Gajanan Kothawade
+
 #  load required packages:
 from __future__ import division
 import math
